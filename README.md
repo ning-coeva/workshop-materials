@@ -16,7 +16,7 @@ Public author copies and presentation material by **Ning Coeva**.
 
 - **Evaluation Theater: How Structural Compliance Decouples from Cognitive Judgment in Deployed LLM Agents**  
   Poster for **AIWILD @ ICML 2026**.  
-  [Poster](posters/Evaluation_Theater_AIWILD2026_Poster.svg)
+  [Poster PDF](posters/Evaluation_Theater_AIWILD2026_Poster.pdf)
 
 ## Author
 
