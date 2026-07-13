@@ -1,0 +1,35 @@
+name: Build Evaluation Theater Poster PDF
+
+on:
+  push:
+    paths:
+      - '.build/evaluation_poster.part*'
+      - '.github/workflows/build-evaluation-theater-poster.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Assemble poster PDF
+        run: |
+          mkdir -p posters
+          cat .build/evaluation_poster.part00 .build/evaluation_poster.part01 .build/evaluation_poster.part02 \
+            | tr -d '\n\r' \
+            | base64 --decode \
+            > posters/Evaluation_Theater_AIWILD2026_Poster.pdf
+          pdfinfo posters/Evaluation_Theater_AIWILD2026_Poster.pdf
+
+      - name: Commit poster PDF
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add posters/Evaluation_Theater_AIWILD2026_Poster.pdf
+          git diff --cached --quiet || git commit -m "Add Evaluation Theater poster PDF"
+          git push
