@@ -1,0 +1,36 @@
+name: Restore Evaluation Theater Poster PDF
+
+on:
+  push:
+    paths:
+      - '.github/workflows/restore-evaluation-poster-pdf.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  restore:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Restore and decode the original poster PDF
+        run: |
+          mkdir -p posters
+          {
+            git show 16e465a5b0484f6a757f5201351ebbb1be23eef5:.build/evaluation_poster.part00
+            git show 16e465a5b0484f6a757f5201351ebbb1be23eef5:.build/evaluation_poster.part01
+            git show 16e465a5b0484f6a757f5201351ebbb1be23eef5:.build/evaluation_poster.part02
+          } | tr -d '\n\r' | base64 --decode > posters/Evaluation_Theater_AIWILD2026_Poster.pdf
+          test "$(head -c 4 posters/Evaluation_Theater_AIWILD2026_Poster.pdf)" = "%PDF"
+
+      - name: Commit the restored PDF
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add posters/Evaluation_Theater_AIWILD2026_Poster.pdf
+          git diff --cached --quiet || git commit -m "Add Evaluation Theater poster PDF"
+          git push
