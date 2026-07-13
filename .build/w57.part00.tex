@@ -1,0 +1,64 @@
+
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=0.78in]{geometry}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{titlesec}
+\usepackage{parskip}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\titleformat{\section}{\large\bfseries}{\thesection}{0.55em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{0.55em}{}
+\titlespacing*{\section}{0pt}{10pt}{4pt}
+\titlespacing*{\subsection}{0pt}{8pt}{3pt}
+
+\title{\vspace{-1.4em}\textbf{From Scores to Stories: Interaction Traces as Context for Cognitive Personal Informatics}}
+\author{\textsc{Ning Coeva}\\Independent Researcher\\\href{mailto:coevaxlumen.log@gmail.com}{coevaxlumen.log@gmail.com}}
+\date{\vspace{-0.8em}\small Accepted paper at \textit{The CHI'26 Workshop on the Future of Cognitive Personal Informatics}, CHI 2026}
+
+\begin{document}
+\maketitle
+\vspace{-1.2em}
+
+\begin{abstract}
+Consumer neurotechnology and wearables increasingly offer cognitive metrics---stress scores, focus indices, attention ratings---yet these scores often lack the task context, intent, and situational meaning that users need to reflect on and regulate their own cognition. We propose interaction traces from everyday human--AI collaboration as a context layer for Cognitive Personal Informatics (CPI). Drawing on the concept of ``cognitive rhythm''---observable shifts in reasoning depth, conceptual breadth, and transition patterns within conversation logs---we treat these traces as reflective artifacts: sensemaking scaffolds that support user reflection and agency, not ground-truth cognitive state classification. We present two design vignettes illustrating how interaction traces can complement wearable data (a workplace deep-work session where transition points matter more than aggregate scores, and a creative exploration session where low-focus readings mask productive incubation). We derive four design principles for ethical, agency-preserving CPI (uncertainty-first display, user-contestable interpretations, annotation as first-class input, individualized baselines) and identify three anti-patterns that CPI systems should avoid. We conclude with a research agenda for integrating interaction-based and sensor-based CPI modalities while keeping the user as the primary meaning-maker.
+\end{abstract}
+
+\textbf{Additional Key Words and Phrases:} cognitive personal informatics, personal informatics, sensemaking, agency, uncertainty, wearables, neurotechnology, interaction traces, reflection
+
+\section{Introduction}
+
+Consumer neurotechnology is entering everyday life. Wearable EEG headbands estimate focus during study sessions, smartwatches flag elevated stress during meetings, and wellness apps claim to offer ``cognitive fitness scores'' that track mental performance over time. The appeal is clear: if we can quantify cognition, we can reflect on it, regulate it, and protect it.
+
+Yet cognitive data resists the quantification patterns that work well for physical activity. A step count is legible and actionable; a ``focus score of 72'' is not. Cognitive states are deeply context-dependent: the same neural signature might accompany creative incubation, anxious rumination, or deliberate mind-wandering. Without knowing what the user was doing, what went wrong, and what they were trying to achieve, a cognitive score becomes an opaque verdict rather than a reflective prompt.
+
+This context gap is the central challenge for Cognitive Personal Informatics (CPI). Wearable sensors capture that something happened in the brain or body; they rarely capture why. The result is a measurement that is precise but uninterpretable---or worse, one that AI systems interpret on the user's behalf, generating explanations (``you were stressed because of your 2pm meeting'') that may override the user's own understanding.
+
+We propose a complementary data source: interaction traces from everyday human--AI collaboration. When people work with AI agents over extended sessions---writing, analyzing, debugging, brainstorming---the conversation logs contain rich signals about cognitive activity at the task level: how deeply the user engaged with a problem, how broadly they activated different knowledge domains, how abruptly they switched contexts, and where breakdowns occurred. We call these patterns cognitive rhythm---we use the term descriptively, not diagnostically---and we treat them not as ground-truth measurements but as reflective artifacts---sensemaking scaffolds that help users recall, reinterpret, and learn from their own cognitive patterns.
+
+The goal is not to tell users what they were, but to help them recall and reinterpret what was happening---so they can decide what it means.
+
+\textbf{Scope.} We do not propose cognitive state classification, nor do we aim to improve the accuracy of physiological signal inference. Our contribution is a design perspective: interaction traces as a context layer for CPI that supports user sensemaking and agency. We derive this perspective from two illustrative vignettes, four design principles, and three anti-patterns for ethical CPI.
+
+\section{Interaction Traces as CPI Data}
+
+\subsection{What Are Interaction Traces?}
+
+Interaction traces are the timestamped records of human--AI collaboration: conversation logs, tool-use events (e.g., compile errors, search queries, document revisions), task switches, error encounters, and---when available---user annotations. Unlike physiological signals, which capture neural or bodily activity, interaction traces capture cognitive activity as it manifests in task behavior. They record what the user was doing, not what the user's brain was producing.
+
+This makes interaction traces a natural complement to sensor-based CPI. Where a wearable might report ``elevated stress at 10:40am,'' the interaction trace can show that at 10:40am, a build failed, the user rapidly switched between three threads, and reasoning depth dropped from sustained analysis to shallow acknowledgments. Together, the two modalities provide both the physiological what and the behavioral why.
+
+\subsection{Cognitive Rhythm as a Reflective Lens}
+
+We organize interaction traces around three dimensions that we collectively term cognitive rhythm:
+
+\textbf{Depth} captures reasoning elaboration: whether the user and agent engaged in sustained multi-step analysis or quick execution. Observable in conversation logs through reasoning chain length, inferential connective density, and step articulation.
+
+\textbf{Breadth} captures conceptual spread: how many distinct knowledge domains were active during a session. Observable through topic diversity and cross-domain references within a conversation window.
+
+\textbf{Transition} captures switching patterns: whether context shifts were smooth and signaled or abrupt and disorienting. Observable through topic-switch frequency, un-signaled jumps, and the user's ability to resume prior threads after digressions.
+
