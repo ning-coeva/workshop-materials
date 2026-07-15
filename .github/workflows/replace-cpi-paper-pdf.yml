@@ -1,9 +1,8 @@
 name: Replace CPI paper PDF
 
 on:
-  push:
-    paths:
-      - '.github/workflows/replace-cpi-paper-pdf.yml'
+  issues:
+    types: [opened]
   workflow_dispatch:
 
 permissions:
@@ -11,6 +10,7 @@ permissions:
 
 jobs:
   replace:
+    if: github.event_name == 'workflow_dispatch' || github.event.issue.title == '[maintenance] Replace CPI paper PDF'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -32,5 +32,3 @@ jobs:
           git add -A
           git commit -m "Replace Cognitive Personal Informatics paper PDF"
           git push
-
-# One-time repository maintenance workflow.
