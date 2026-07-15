@@ -10,7 +10,7 @@ Separate uploads of CHI 2026 materials by **Ning Coeva**.
 
 2. **From Scores to Stories: Interaction Traces as Context for Cognitive Personal Informatics**  
    Accepted paper at **The CHI'26 Workshop on the Future of Cognitive Personal Informatics**.  
-   [PDF](papers/CHI2026_Future_Cognitive_Personal_Informatics_From_Scores_to_Stories.pdf)
+   [PDF](papers/W57__The_Future_of_Cognitive_Personal_Informatics.pdf)
 
 ## Author
 
