@@ -4,5 +4,4 @@ Poster presented at **The Second Workshop on Agents in the Wild: Safety, Securit
 
 Workshop page: https://icml.cc/virtual/2026/workshop/54082
 
-## Contents
-- `Evaluation_Theater_AIWILD2026_Poster.pdf`
+- [Evaluation Theater — Poster](Evaluation_Theater_AIWILD2026_Poster.pdf)
